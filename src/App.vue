@@ -1,24 +1,54 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <ImgSlider :option="option" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ImgSlider from "./components/ImgSlider";
+const BASE = `http://127.0.0.1:12010/images`;
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ImgSlider,
+  },
+  setup() {
+    const option = {
+      list: [
+        {
+          src: `${BASE}/1.jpg`,
+          name: "yosigo 1",
+          id: 1,
+        },
+        {
+          src: `${BASE}/2.jpg`,
+          name: "yosigo 2",
+          id: 2,
+        },
+        {
+          src: `${BASE}/3.jpg`,
+          name: "yosigo 3",
+          id: 3,
+        },
+      ],
+      height: 450,
+      width: 800,
+    };
+    return {
+      option,
+    };
+  },
+};
 </script>
 
 <style>
+@font-face {
+  font-family: "MaruBuri-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "MaruBuri-Regular";
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
